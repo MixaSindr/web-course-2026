@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лендинг — лабораторная №2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site">
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="logo" href="#">Brand<span>.</span></a>
+
+        <nav class="nav" aria-label="Основная навигация">
+          <ul class="nav__list">
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#contact">Контакты</a></li>
+            <li><a href="#about">О нас</a></li>
+          </ul>
+        </nav>
+
+        <!-- Гамбургер только для мобильной версии, JS не нужен -->
+        <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="hero" id="about">
+        <div class="container hero__grid">
+          <div class="hero__content">
+            <span class="eyebrow">Адаптивный лендинг</span>
+            <h1>Помогаем запускать digital-продукты</h1>
+            <p class="hero__lead">
+              Страница сверстана по подходу Mobile First: сначала мобильная версия,
+              затем планшет и десктоп.
+            </p>
+            <div class="hero__actions">
+              <a class="button" href="#contact">Оставить заявку</a>
+              <a class="button button--ghost" href="#services">Смотреть услуги</a>
+            </div>
+          </div>
+
+          <div class="hero__media" role="img" aria-label="Декоративное изображение продукта">
+            <span class="hero__media-label">Figma → HTML / CSS</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <div class="container">
+          <div class="section-head">
+            <h2>Что мы делаем</h2>
+            <p>Карточки услуг собраны через Grid, содержимое карточки — через Flexbox.</p>
+          </div>
+
+          <div class="services__grid">
+            <article class="card">
+              <div class="card__icon">01</div>
+              <h3>Адаптивная вёрстка</h3>
+              <p>Три контрольные точки: мобильный, планшет и десктоп без горизонтального скролла.</p>
+              <a class="button button--ghost" href="#contact">
+                Подробнее <span aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="card">
+              <div class="card__icon">02</div>
+              <h3>CSS Grid + Flexbox</h3>
+              <p>Grid отвечает за крупные блоки страницы, Flexbox — за меню, кнопки и карточки.</p>
+              <a class="button button--ghost" href="#contact">
+                Подробнее <span aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="card">
+              <div class="card__icon">03</div>
+              <h3>Формы и состояния</h3>
+              <p>Поля и кнопки оформлены с hover и focus, размеры удобны для касания.</p>
+              <a class="button button--ghost" href="#contact">
+                Подробнее <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="container contact__inner">
+          <div class="contact__text">
+            <h2>Обсудим проект</h2>
+            <p>Заполните форму. Отправка не реализуется — это только вёрстка по заданию.</p>
+          </div>
+
+          <form class="contact__form" novalidate>
+            <div class="form__row">
+              <label class="field">
+                <span>Имя</span>
+                <input type="text" name="name" placeholder="Ваше имя" autocomplete="name">
+              </label>
+
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@example.com" autocomplete="email">
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Сообщение</span>
+              <textarea name="message" rows="5" placeholder="Расскажите о задаче"></textarea>
+            </label>
+
+            <button class="button" type="button">Отправить</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© 2026 Brand. Лабораторная работа №2.</p>
+        <a href="#contact">Связаться</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
