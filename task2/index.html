@@ -12,6 +12,16 @@
       <div class="container site-header__inner">
         <a class="logo" href="#">Brand<span>.</span></a>
 
+        <!-- Скрытый чекбокс: переключается кликом по <label class="burger"> -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+
+        <!-- Бургер = label, связанный с чекбоксом -->
+        <label for="nav-toggle" class="burger" aria-label="Открыть меню">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </label>
+
         <nav class="nav" aria-label="Основная навигация">
           <ul class="nav__list">
             <li><a href="#services">Услуги</a></li>
@@ -19,13 +29,6 @@
             <li><a href="#about">О нас</a></li>
           </ul>
         </nav>
-
-        <!-- Гамбургер только для мобильной версии, JS не нужен -->
-        <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
-          <span class="burger__line"></span>
-          <span class="burger__line"></span>
-          <span class="burger__line"></span>
-        </button>
       </div>
     </header>
 

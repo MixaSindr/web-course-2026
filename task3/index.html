@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo-list — лабораторная №3</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1>Todo-list</h1>
+      <p>Лабораторная работа №3: JS, DOM и управление состоянием.</p>
+    </header>
+
+    <form class="todo-form" id="todo-form" novalidate>
+      <label class="sr-only" for="todo-input">Новая задача</label>
+      <div class="todo-form__row">
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="Что нужно сделать?"
+          autocomplete="off"
+        >
+        <button class="button button--primary" type="submit">Добавить</button>
+      </div>
+      <p class="form-warning" id="form-warning" role="alert" aria-live="polite" hidden></p>
+    </form>
+
+    <section class="toolbar" aria-label="Управление списком">
+      <div class="filters" role="group" aria-label="Фильтр задач">
+        <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">Все</button>
+        <button class="filter-btn" type="button" data-filter="active" aria-pressed="false">Активные</button>
+        <button class="filter-btn" type="button" data-filter="completed" aria-pressed="false">Завершённые</button>
+      </div>
+
+      <p class="counter" id="counter">Осталось: 0, Выполнено: 0</p>
+    </section>
+
+    <ul class="todo-list" id="todo-list"></ul>
+    <p class="empty-state" id="empty-state">Пока задач нет. Добавьте первую.</p>
+  </main>
+</body>
+</html>

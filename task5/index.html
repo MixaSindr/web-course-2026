@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Саймон — повтори последовательность</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game">
+    <h1 class="game__title">Саймон</h1>
+
+    <div class="hud">
+      <div class="hud__box">
+        <span class="hud__label">Уровень</span>
+        <span class="hud__value" id="level">0</span>
+      </div>
+      <div class="hud__box">
+        <span class="hud__label">Рекорд</span>
+        <span class="hud__value" id="record">0</span>
+      </div>
+    </div>
+
+    <p class="status" id="status" role="status">Нажмите «Старт», чтобы начать</p>
+
+    <div class="board" id="board">
+      <button class="pad pad--green"  type="button" data-index="0" aria-label="Зелёная"></button>
+      <button class="pad pad--red"    type="button" data-index="1" aria-label="Красная"></button>
+      <button class="pad pad--yellow" type="button" data-index="2" aria-label="Жёлтая"></button>
+      <button class="pad pad--blue"   type="button" data-index="3" aria-label="Синяя"></button>
+    </div>
+
+    <button class="start-btn" id="startBtn" type="button">Старт</button>
+  </main>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

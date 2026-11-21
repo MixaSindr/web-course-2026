@@ -1,0 +1,172 @@
+/* ===================== База ===================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  --bg:      #0e1117;
+  --panel:   #161b25;
+  --text:    #e8edf5;
+  --muted:   #8b97a8;
+  --green:   #2ecc71;
+  --red:     #ff4d4d;
+  --yellow:  #ffcc33;
+  --blue:    #3aa8ff;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 50% 0%, #1c2433 0%, var(--bg) 65%);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===================== Каркас ===================== */
+.game {
+  width: min(100%, 420px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.game__title {
+  margin: 0;
+  text-align: center;
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #cfd8e6;
+}
+
+/* ===================== Счётчики ===================== */
+.hud {
+  display: flex;
+  gap: 12px;
+}
+
+.hud__box {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, .06);
+  border-radius: 12px;
+}
+
+.hud__label {
+  font-size: .72rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hud__value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===================== Статус ===================== */
+.status {
+  margin: 0;
+  min-height: 2.6em;
+  text-align: center;
+  font-size: .95rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+/* ===================== Игровое поле ===================== */
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px;
+  aspect-ratio: 1 / 1;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, .06);
+  border-radius: 26px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, .45);
+}
+
+/* ===================== Сектора ===================== */
+.pad {
+  --pad-color: #888;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: var(--pad-color);
+  border-radius: 12px;
+  filter: brightness(.42) saturate(.75);
+  transition: filter .12s ease, box-shadow .12s ease, transform .09s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Внешние углы скруглены сильнее — получается единая «розетка» */
+.pad--green  { --pad-color: var(--green);  border-top-left-radius: 110px; }
+.pad--red    { --pad-color: var(--red);    border-top-right-radius: 110px; }
+.pad--yellow { --pad-color: var(--yellow); border-bottom-left-radius: 110px; }
+.pad--blue   { --pad-color: var(--blue);   border-bottom-right-radius: 110px; }
+
+/* Подсветка (используется только как визуализация состояния) */
+.pad.is-active {
+  filter: brightness(1.4) saturate(1.1);
+  box-shadow: 0 0 26px 2px var(--pad-color),
+              inset 0 0 24px rgba(255, 255, 255, .5);
+  transform: scale(1.015);
+}
+
+.pad:focus-visible {
+  outline: 2px solid #7fb2ff;
+  outline-offset: 3px;
+}
+
+/* Когда ход компьютера или игра окончена — курсор обычный */
+.board--locked .pad { cursor: default; }
+
+/* Отклик на наведение/нажатие только когда ждём ввода игрока */
+.board:not(.board--locked) .pad:hover  { filter: brightness(.62) saturate(.9); }
+.board:not(.board--locked) .pad:active { transform: scale(.98); }
+
+/* ===================== Кнопка «Старт» ===================== */
+.start-btn {
+  padding: 15px 18px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #0b0f16;
+  background: linear-gradient(180deg, #f4f8ff, #c7d4e8);
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: filter .12s ease, transform .08s ease;
+}
+
+.start-btn:hover  { filter: brightness(1.06); }
+.start-btn:active { transform: translateY(1px) scale(.995); }
+.start-btn:focus-visible { outline: 2px solid #7fb2ff; outline-offset: 3px; }
+
+/* ===================== Малые экраны ===================== */
+@media (max-width: 380px) {
+  .game { gap: 12px; }
+  .game__title { font-size: 1.25rem; }
+  .board { gap: 9px; padding: 9px; border-radius: 20px; }
+  .pad--green, .pad--red, .pad--yellow, .pad--blue { border-radius: 12px; }
+  .pad--green  { border-top-left-radius: 80px; }
+  .pad--red    { border-top-right-radius: 80px; }
+  .pad--yellow { border-bottom-left-radius: 80px; }
+  .pad--blue   { border-bottom-right-radius: 80px; }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Быки и коровы — лабораторная №4</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <h1>🐂 Быки и коровы 🐄</h1>
+      <p class="game__lead">
+        Компьютер загадал число из 4 неповторяющихся цифр.
+        Угадайте его: <strong>🐂 бык</strong> — цифра на своём месте,
+        <strong>🐄 корова</strong> — цифра есть, но не на своём месте.
+      </p>
+    </header>
+
+    <section class="game__panel">
+      <div class="attempt-form">
+        <label class="sr-only" for="attempt-input">Ваша попытка</label>
+        <input
+          id="attempt-input"
+          type="text"
+          inputmode="numeric"
+          autocomplete="off"
+          maxlength="4"
+          placeholder="1234"
+        >
+        <button class="button button--primary" id="check-btn" type="button">Проверить</button>
+      </div>
+
+      <p class="message" id="message" role="status" aria-live="polite" hidden></p>
+
+      <div class="stats">
+        <span>Попыток: <strong id="attempt-count">0</strong></span>
+        <button class="button button--ghost" id="new-game-btn" type="button">Новая игра</button>
+      </div>
+    </section>
+
+    <section class="history" aria-label="История попыток">
+      <h2 class="history__title">История</h2>
+      <ul class="history__list" id="history-list"></ul>
+      <p class="history__empty" id="history-empty">Пока нет попыток. Введите 4 цифры.</p>
+    </section>
+  </main>
+</body>
+</html>
