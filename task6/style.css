@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #0b0f14;
+  color: #e8eef5;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  user-select: none;
+}
+
+h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.score {
+  margin: 0;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+
+.score span {
+  color: #7ef29d;
+  font-weight: 700;
+}
+
+.game {
+  position: relative;
+}
+
+#game {
+  display: block;
+  border-radius: 12px;
+  background: #11161d;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  border-radius: 12px;
+  background: rgba(8, 12, 16, 0.82);
+}
+
+/* display:flex перебивает атрибут hidden — возвращаем ему силу */
+.overlay[hidden] {
+  display: none;
+}
+
+.overlay__title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.overlay__score {
+  margin: 0;
+  font-size: 16px;
+  color: #b9c6d4;
+}
+
+.overlay__score span {
+  color: #7ef29d;
+  font-weight: 700;
+}
+
+.overlay__button {
+  margin-top: 8px;
+  padding: 10px 22px;
+  font: inherit;
+  font-size: 16px;
+  color: #0b0f14;
+  background: #7ef29d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.overlay__button:hover {
+  background: #9df7b5;
+}
+
+.overlay__button:active {
+  transform: translateY(1px);
+}
+
+.hint {
+  margin: 0;
+  font-size: 14px;
+  color: #7b8794;
+}

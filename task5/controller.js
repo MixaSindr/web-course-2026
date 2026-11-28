@@ -69,7 +69,7 @@ function playTone(index) {
     osc.start(now);
     osc.stop(now + 0.32);
     osc.onended = () => { osc.disconnect(); gain.disconnect(); };
-  } catch { }
+  } catch {console.warn('[playErrorTone] звук ошибки недоступен:', err);}
 }
 
 function playErrorTone() {
@@ -93,7 +93,7 @@ function playErrorTone() {
     osc.start(now);
     osc.stop(now + 0.6);
     osc.onended = () => { osc.disconnect(); gain.disconnect(); };
-  } catch { /* ignore */ }
+  } catch {console.warn('[playErrorTone] звук ошибки недоступен:', err);}
 }
 
 
